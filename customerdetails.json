@@ -1,0 +1,5 @@
+[
+    {"customerid":1,"customerName":"cherry", "salary":50000},
+    {"customerid":2,"customerName":"chaitu", "salary":60000},
+    {"customerid":3,"customerName":"srinu", "salary":70000}
+]

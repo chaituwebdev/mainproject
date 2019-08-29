@@ -1,0 +1,13 @@
+
+<h2 style='color:green'>customer details</h2><hr>
+<table border="1" align="center">
+    <tr *ngIf="customers.length!=0">
+     
+        <td align="center">id</td><td align="center">name</td><td align="center">body</td>
+    </tr>
+    <tr *ngFor="let customer of customers">
+        <td>{{customer.id}}</td><td>{{customer.title}}</td><td>{{customer.body}}</td>
+    </tr>
+</table>
+<!-- {{customers}}
+{{errMsg.message}} -->

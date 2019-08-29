@@ -1,0 +1,74 @@
+<div class="container">
+        <h2>user registration form</h2>
+        <form [formGroup]="userForm" (ngSubmit)="onsubmit()">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" formControlName="name" value="chaitu">
+    
+                <div *ngIf="userForm.controls['name'].hasError('required')" class="alert alert-danger">
+    
+                    please enter a name
+                </div>
+                <div *ngIf="userForm.controls['name'].hasError('minlength')" class="alert alert-danger">
+    
+                    please atleast 4 charcters
+                </div>
+    
+            </div>
+    
+            <div class="form-group">
+                <label>contact:</label>
+                <input type="text" class="form-control" formControlName="contact" >
+                <div *ngIf="userForm.controls['contact'].hasError('pattern')" class="alert alert-danger">
+    
+                    please enter valid postal code
+                </div>
+    
+            </div>
+            <div class="form-group">
+                <label>email:</label>
+                <input type="text" class="form-control" formControlName="email">
+                <div *ngIf="userForm.controls['email'].hasError('pattern')" class="alert alert-danger">
+    
+                    please enter valid email
+                </div>
+            </div>
+            <div formGroupName="address">
+    
+                <div class="form-group">
+                    <label>city:</label>
+                    <input type="text" class="form-control" formControlName="city">
+                    <div *ngIf="userForm.controls['address'].controls['city'].hasError('required')"
+                        class="alert alert-danger">
+    
+                        please enter a city
+                    </div>
+                    <div *ngIf="userForm.controls['address'].controls['city'].hasError('pattern')"
+                        class="alert alert-danger">
+    
+                        please enter valid city
+                    </div>
+    
+                </div>
+                <div class="form-group">
+                    <label>street:</label>
+                    <input type="text" required class="form-control" formControlName="street">
+    
+                </div>
+                <div class="form-group">
+                    <label>Postalcode:</label>
+                    <input type="text" required class="form-control" formControlName="postalcode">
+                </div>
+                <div *ngIf="userForm.controls['address'].controls['postalcode'].hasError('required')"
+                    class="alert alert-danger">
+                    please enter postalcode
+                </div>
+                <div *ngIf="userForm.controls['address'].controls['postalcode'].hasError('pattern')"
+                    class="alert alert-danger">
+                    please enter valid postal code
+                </div>
+            </div>
+    
+            <button [disabled]="!userForm.valid" type="submit" class="btn btn-success">SUBMIT</button>
+        </form>
+    </div>
